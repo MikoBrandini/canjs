@@ -1,6 +1,12 @@
 /* jshint esversion: 6 */
 'use strict';
 
+/* Set environment variables based on current branch */
+if (process.env.TRAVIS_BRANCH !== 'master' || process.env.TRAVIS_PULL_REQUEST) {
+	process.env.SAUCE_ACCESS_KEY = process.env.SAUCE_ACCESS_KEY_NOT_MASTER;
+	process.env.SAUCE_USERNAME = process.env.SAUCE_USERNAME_NOT_MASTER;
+}
+
 var testSauceLabs = require('test-saucelabs');
 
 // https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities
