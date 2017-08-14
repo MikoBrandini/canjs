@@ -21,35 +21,41 @@
 	</style>
 </head>
 <body>
-	<script type="text/stache" id="demo-html">
-		<form>
-			<div>
-				<label>Credit Card Number <small class="has-errors">{{formatErrors(this, 'card').join(', ')}}</small></label>
-				<input
-					class="form-control {{#if formatErrors(this, 'card').length}}has-errors{{/if}}"
-					type="text"
-					{($value)}="card"
-					placeholder="XXXX-XXXX-XXXX-XXXX">
-			</div>
-			<div>
-				<label>Expiration Month <small class="has-errors">{{formatErrors(this, 'month').join(', ')}}</small></label>
-				<input
-					class="form-control {{#if formatErrors(this, 'month').length}}has-errors{{/if}}"
-					type="text"
-					{($value)}="month"
-					placeholder="XX">
-			</div>
-			<div>
-				<label>Expiration Year <small class="has-errors">{{formatErrors(this, 'year').join(', ')}}</small></label>
-				<input
-					class="form-control {{#if formatErrors(this, 'year').length}}has-errors{{/if}}"
-					type="text"
-					{($value)}="year"
-					placeholder="XXXX">
-			</div>
-			<button type="submit" {$disabled}="errors()">Submit</button>
-		</form>
-	</script>
+<script type="text/stache" id="demo-html">
+<form>
+	<div>
+		<label>
+			Credit Card Number <small class="has-errors">{{formatErrors(this, 'card').join(', ')}}</small>
+			<input
+				class="form-control {{#if formatErrors(this, 'card').length}}has-errors{{/if}}"
+				type="text"
+				{($value)}="card"
+				placeholder="XXXX-XXXX-XXXX-XXXX">
+		</label>
+	</div>
+	<div>
+		<label>
+			Expiration Month <small class="has-errors">{{formatErrors(this, 'month').join(', ')}}</small>
+			<input
+				class="form-control {{#if formatErrors(this, 'month').length}}has-errors{{/if}}"
+				type="text"
+				{($value)}="month"
+				placeholder="XX">
+		</label>
+	</div>
+	<div>
+		<label>
+			Expiration Year <small class="has-errors">{{formatErrors(this, 'year').join(', ')}}</small>
+			<input
+				class="form-control {{#if formatErrors(this, 'year').length}}has-errors{{/if}}"
+				type="text"
+				{($value)}="year"
+				placeholder="XXXX">
+		</label>
+	</div>
+	<button type="submit" {$disabled}="errors()">Submit</button>
+</form>
+</script>
 	<script src="../../node_modules/steal/steal.js" main="@empty">
 		var stache = require("can-stache");
 		var DefineMap = require("can-define/map/map");
